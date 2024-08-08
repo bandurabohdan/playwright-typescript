@@ -24,7 +24,7 @@ class ProfilePage extends BasePage {
   }
 
   async isArticleAdded(expectedTtitle: string) {
-    await this.page.reload({ timeout: 2, waitUntil: 'load' })
+    await this.page.reload({ waitUntil: 'load' })
     const articleTitle = await this.getArticleTitle('div[class="article-preview"]:nth-child(2) h1')
     articleTitle && expect(articleTitle.toLowerCase()).toEqual(`article title: ${expectedTtitle.toLowerCase()}`)
   }
