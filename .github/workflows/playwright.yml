@@ -33,6 +33,7 @@ jobs:
         retention-days: 30
   publish-report:
     runs-on: ubuntu-latest
+    if: always()
     needs: test
     name: Report publication
     steps:
