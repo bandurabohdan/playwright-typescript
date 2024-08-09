@@ -22,8 +22,8 @@ class APIRequests {
       headers: {'Content-Type': 'application/json'},
       data: JSON.stringify({
         user: {
-          email: process.env.USER_EMAIL,
-          password: process.env.USER_PASSWORD
+          email: process.env.USER_EMAIL as string,
+          password: process.env.USER_PASSWORD as string
         }
       })
     })
