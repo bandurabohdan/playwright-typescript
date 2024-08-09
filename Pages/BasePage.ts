@@ -13,8 +13,7 @@ class BasePage {
   }
 
   async isUserSignedIn(userName: string){
-    const userNameNavLink: string | null = await this.getText('a.nav-link[href^="/profile"]')
-    userNameNavLink && expect(userNameNavLink.toLowerCase()).toEqual(userName.toLowerCase())
+    await this.expectToHaveText('a.nav-link[href^="/profile"]', userName.toLowerCase())
   }
 
   async getElement(selector: string) {
@@ -55,6 +54,10 @@ class BasePage {
     result = await element.textContent()
 
     return result
+  }
+
+  async expectToHaveText(selector: string, text: string) {
+    await expect(this.page.locator(selector)).toHaveText(text)
   }
 }
 

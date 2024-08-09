@@ -19,7 +19,7 @@ class SignUpPage extends BasePage {
 
   async enterSignUpData(userName: string, lastName: string){
     await this.write('input[placeholder="Username"]', userName)
-    await this.write('input[placeholder="Email"]', `${lastName}}@gmail.com`)
+    await this.write('input[placeholder="Email"]', `${lastName}${Date.now()}@gmail.com`)
     await this.write('input[placeholder="Password"]', lastName)
   }
 

@@ -17,10 +17,10 @@ class ArticlePage extends BasePage {
     this.articleBody = faker.lorem.paragraph({ min: 1, max: 3})
   }
 
-  async enterArticleData(){
-    await this.write('input[placeholder="Article Title"]', this.articleTitle)
-    await this.write(`input[placeholder="What's this article about?"]`, this.articleDescription)
-    await this.write('textarea[placeholder="Write your article (in markdown)"]', this.articleBody)
+  async enterArticleData(articleTitle: string, articleDescription: string, articleBody: string){
+    await this.write('input[placeholder="Article Title"]', articleTitle)
+    await this.write(`input[placeholder="What's this article about?"]`, articleDescription)
+    await this.write('textarea[placeholder="Write your article (in markdown)"]', articleBody)
 
     return this.articleTitle
   }
@@ -30,13 +30,14 @@ class ArticlePage extends BasePage {
   }
 
   async publishArticle(){
-    await this.enterArticleData()
+    await this.enterArticleData(this.articleTitle, this.articleDescription, this.articleBody)
     await this.clickPublishArticle()
+    await this.expectToHaveText('h1', this.articleTitle.toLowerCase())
 
     return this.articleTitle
   }
 
-  async publishArticleUsingAPI(token) {
+  async publishArticleUsingAPI(token: string) {
     let response = await fetch(`${process.env.BASE_API_URL}/articles`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Authorization': `Token ${token}`},
