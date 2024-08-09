@@ -9,6 +9,8 @@ This repository contains automation scripts for web testing using Playwright wit
 - Web application testing using Playwright.
 - TypeScript-based test scripts.
 - Continuous integration with GitHub Actions for automated testing.
+- Auto auth developed for ui tests
+- API testing developed using Playwright request
 
 
 ## Installation
@@ -30,6 +32,10 @@ This repository contains automation scripts for web testing using Playwright wit
     ```bash
     npm install
     ```
+
+## Report
+
+The report is located at https://bandurabohdan.github.io/playwright-typescript/
 
 ## Usage
 
