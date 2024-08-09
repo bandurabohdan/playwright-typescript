@@ -9,7 +9,8 @@ export default defineConfig({
   reporter: 'html',
   use: {
     baseURL: 'https://conduit.mate.academy',
-    trace: 'on-first-retry',
+    trace: 'on',
+    video: 'on',
   },
 
   projects: [
