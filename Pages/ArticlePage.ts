@@ -36,34 +36,6 @@ class ArticlePage extends BasePage {
 
     return this.articleTitle
   }
-
-  async publishArticleUsingAPI(token: string) {
-    let response = await fetch(`${process.env.BASE_API_URL}/articles`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json', 'Authorization': `Token ${token}`},
-      body: JSON.stringify({
-        article: {
-          title: this.articleTitle,
-          description: this.articleDescription,
-          body: this.articleBody,
-          tagList: []
-        }
-      })
-    })
-
-    response = await response.json()
-
-    //@ts-ignore
-    const { slug, title, description, body, tagList, author } = response.article
-
-    expect(slug).toContain(this.articleTitle.toLowerCase())
-    expect(title).toEqual(this.articleTitle.toLowerCase())
-    expect(description).toEqual(this.articleDescription)
-    expect(body).toEqual(this.articleBody)
-    expect(tagList).toHaveLength(0)
-    expect(author.username).toEqual(process.env.USERNAME)
-
-  }
 }
 
 export default ArticlePage;

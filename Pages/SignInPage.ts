@@ -1,4 +1,4 @@
-import { Page, expect } from "@playwright/test";
+import { Page } from "@playwright/test";
 
 import BasePage from "./BasePage.js";
 
@@ -22,31 +22,6 @@ class SignInPage extends BasePage {
     await this.enterSignInData()
     await this.clickSignInButton()
     await this.isUserSignedIn(process.env.USERNAME as string)
-  }
-
-  async loginUsingAPI() {
-
-    let response = await fetch(`${process.env.BASE_API_URL}/users/login`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        user: {
-          email: process.env.USER_EMAIL,
-          password: process.env.USER_PASSWORD
-        }
-      })
-    })
-
-    response = await response.json()
-
-    //@ts-ignore
-    const { username, email, token } = response.user
-
-    expect(username).toEqual(process.env.USERNAME)
-    expect(email).toEqual(process.env.USER_EMAIL)
-    expect(typeof(token)).toBe('string')
-
-    return token
   }
 }
 
