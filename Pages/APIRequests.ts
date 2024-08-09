@@ -18,6 +18,10 @@ class APIRequests {
 
   async login() {
 
+    console.log(process.env.USER_PASSWORD);
+    console.log(process.env.USER_EMAIL);
+
+
     let response = await this.request.post(`/api/users/login`, {
       headers: {'Content-Type': 'application/json'},
       data: JSON.stringify({
