@@ -35,7 +35,7 @@ This repository contains automation scripts for web testing using Playwright wit
 
 ## Report
 
-The report is located at https://bandurabohdan.github.io/playwright-typescript/
+The report is located at [GitHub Pages](https://bandurabohdan.github.io/playwright-typescript/)
 
 ## Usage
 
