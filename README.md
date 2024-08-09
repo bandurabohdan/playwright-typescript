@@ -37,15 +37,34 @@ This repository contains automation scripts for web testing using Playwright wit
 
 To run the tests, use the following command:
 
+Run all tests in headless mode
 ```bash
-npm run test - run all tests in headless mode
-npm run test:ui - run ui mode for running tests
-npm run test:headed - run all tests with opened browser
-npm run test:chromium - run all tests using only chrome browser
-npm run test:firefox - run all tests using only firefox browser
-npm run test:webkit - run all tests using only webkit browser
-npm run build:report" - generate report after test run
+npm run test
 ```
+Open ui mode for running tests
+```bash
+npm run test:ui
+```
+Run all tests with opened browser
+```bash
+npm run test:headed
+```
+Run all tests using only chrome browser
+```bash
+npm run test:chromium
+```
+Run all tests using only firefox browser
+```bash
+npm run test:firefox
+```
+Run all tests using only webkit browser
+```bash
+npm run test:webkit
+```
+Generate report after test run
+```bash
+npm run build:report"
+
 
 ## GitHub Actions
 
