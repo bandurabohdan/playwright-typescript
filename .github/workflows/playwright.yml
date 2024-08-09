@@ -27,6 +27,7 @@ jobs:
     - name: Run Playwright tests
       run: npm run test
     - name: Check directory
+      if: always()
       run: ls -a
     - uses: actions/upload-artifact@v3
       if: always()
@@ -47,6 +48,7 @@ jobs:
           name: playwright-report
           path: ./
       - name: Check directory
+        if: always()
         run: ls -a
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
