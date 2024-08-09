@@ -63,7 +63,8 @@ npm run test:webkit
 ```
 Generate report after test run
 ```bash
-npm run build:report"
+npm run build:report
+```
 
 
 ## GitHub Actions
