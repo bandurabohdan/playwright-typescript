@@ -30,6 +30,9 @@ class APIRequests {
 
     response = await response.json()
 
+    console.log(response);
+
+
     // @ts-ignore
     const { username, email, token } = response.user
 

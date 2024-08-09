@@ -16,7 +16,6 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
-      BASE_API_URL: ${{ vars.BASE_API_URL }}
       USER_EMAIL: ${{ vars.USER_EMAIL }}
       USERNAME: ${{ vars.USERNAME }}
       USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
