@@ -1,11 +1,10 @@
 import 'dotenv/config'
-import { APIRequestContext, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
 import HomePage from '../Pages/HomePage';
 import SignUpPage from '../Pages/SignUpPage';
 import SignInPage from '../Pages/SignInPage';
 import ArticlePage from '../Pages/ArticlePage';
 import ProfilePage from '../Pages/ProfilePage';
-import APIRequests from '../Pages/APIRequests'
 
 class PageFactory {
 
@@ -33,10 +32,6 @@ class PageFactory {
 
   getProfilePage(){
     return new ProfilePage(this.page)
-  }
-
-  getAPIRequests(request: APIRequestContext){
-    return new APIRequests(request)
   }
 }
 

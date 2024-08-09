@@ -1,17 +1,22 @@
 import test from "@playwright/test"
-import PageFactory from "../Factories/PageFactory"
+import APIRequests from "../API/APIRequests"
 
 test.describe('Conduit API testing', async () => {
-  let pageFactory: PageFactory
+  let apiRequests: APIRequests
 
-  test.beforeEach(async ({ page }) => {
-    pageFactory = new PageFactory(page)
+  test.beforeEach(async ({ request }) => {
+    apiRequests = new APIRequests(request)
   })
 
-  test('Login and create artice using API', async ({ request }) => {
-    const apiRequests = pageFactory.getAPIRequests(request)
+  test('Create artice using API', async () => {
+    await apiRequests.login()
+    await apiRequests.publishArticle()
+  })
 
-    const token = await apiRequests.login()
-    await apiRequests.publishArticle(token)
+  test('Like and comment article', async () => {
+    await apiRequests.login()
+    await apiRequests.publishArticle()
+    await apiRequests.putLikeOnArticle()
+    await apiRequests.leftCommentOnArticle()
   })
 })
