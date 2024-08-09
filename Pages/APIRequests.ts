@@ -18,15 +18,6 @@ class APIRequests {
 
   async login() {
 
-    const x = process.env.USER_PASSWORD
-    const y = process.env.USER_EMAIL
-
-    console.log(x);
-    console.log(y);
-
-    console.log(process.env.USER_PASSWORD === 'qwerty12345', 'pass');
-    console.log(process.env.USER_EMAIL === 'qwerty12345678@gmail.com', 'email');
-
     let response = await this.request.post(`/api/users/login`, {
       headers: {'Content-Type': 'application/json'},
       data: JSON.stringify({
@@ -38,9 +29,6 @@ class APIRequests {
     })
 
     response = await response.json()
-
-    console.log(response);
-
 
     // @ts-ignore
     const { username, email, token } = response.user
