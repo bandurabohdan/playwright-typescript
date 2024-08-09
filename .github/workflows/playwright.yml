@@ -4,7 +4,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  
+
 on:
   push:
     branches: [ main, master ]
@@ -15,6 +15,13 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      BASE_URL: ${{ vars.BASE_URL }}
+      BASE_API_URL: ${{ vars.BASE_API_URL }}
+      USER_EMAIL: ${{ vars.USER_EMAIL }}
+      USERNAME: ${{ vars.USERNAME }}
+      USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -51,4 +58,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1.2.9
-
